@@ -12,16 +12,15 @@ class HYHomeDrawer extends StatelessWidget {
           child: Column(
             children: <Widget>[
               buildHeaderView(context),
-              buildListTile(context, Icon(Icons.restaurant), "进餐", () {
+              buildListTile(context, Icon(Icons.restaurant), "進餐", () {
                 Navigator.of(context).pop();
               }),
-              buildListTile(context, Icon(Icons.settings), "过滤", () {
+              buildListTile(context, Icon(Icons.settings), "過濾", () {
                 Navigator.of(context).pushNamed(HYFilterScreen.routeName);
               }),
             ],
           ),
-        )
-    );
+        ));
   }
 
   Widget buildHeaderView(BuildContext context) {
@@ -31,14 +30,18 @@ class HYHomeDrawer extends StatelessWidget {
       color: Colors.orange,
       margin: EdgeInsets.only(bottom: 20.px),
       alignment: Alignment(0, 0.5),
-      child: Text("开始动手", style: Theme.of(context).textTheme.display4),
+      child: Text("開始動手", style: Theme.of(context).textTheme.display4),
     );
   }
 
-  Widget buildListTile(BuildContext context, Widget icon, String title, Function handler) {
+  Widget buildListTile(
+      BuildContext context, Widget icon, String title, Function handler) {
     return ListTile(
       leading: icon,
-      title: Text(title, style: Theme.of(context).textTheme.display2,),
+      title: Text(
+        title,
+        style: Theme.of(context).textTheme.display2,
+      ),
       onTap: handler,
     );
   }

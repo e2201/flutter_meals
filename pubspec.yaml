@@ -32,9 +32,7 @@ flutter:
 
   
   assets:
-      - assets/json/category.json
-      
-  
+    - assets/json/category.json
   # fonts:
   #   - family: Schyler
   #     fonts:

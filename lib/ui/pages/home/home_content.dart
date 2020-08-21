@@ -10,8 +10,12 @@ class HYHomeContent extends StatelessWidget {
     return FutureBuilder<List<HYCategoryModel>>(
       future: HYJsonParse.getCategoryData(),
       builder: (ctx, snapshot) {
-        if (!snapshot.hasData) return Center(child: CircularProgressIndicator());
-        if (snapshot.error != null) return Center(child: Text("请求失败"),);
+        if (!snapshot.hasData)
+          return Center(child: CircularProgressIndicator());
+        if (snapshot.error != null)
+          return Center(
+            child: Text("加載失敗"),
+          );
 
         final categories = snapshot.data;
         return GridView.builder(
@@ -21,12 +25,10 @@ class HYHomeContent extends StatelessWidget {
                 crossAxisCount: 2,
                 crossAxisSpacing: 20.px,
                 mainAxisSpacing: 20.px,
-                childAspectRatio: 1.5
-            ),
+                childAspectRatio: 1.5),
             itemBuilder: (ctx, index) {
               return HYHomeCategoryItem(categories[index]);
-            }
-        );
+            });
       },
     );
   }
